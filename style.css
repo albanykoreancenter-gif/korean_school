@@ -51,10 +51,28 @@ a { text-decoration: none; color: inherit; }
 
 /* ── Hero banner ── */
 .gs-hero {
-  background: #1D9E75;
+  position: relative;
+  background-image: url('images/groups.png');
+  background-size: cover;
+  background-position: center;
   padding: 56px 40px;
   text-align: center;
   border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+.gs-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 110, 86, 0.75);
+  z-index: 0;
+}
+.gs-hero > * {
+  position: relative;
+  z-index: 1;
+}
+.gs-hero-sub {
+  padding: 40px 40px !important;
 }
 .gs-hero h1 { color: #fff; font-size: 28px; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
 .gs-hero p { color: rgba(255,255,255,0.88); font-size: 13px; line-height: 1.85; margin-bottom: 4px; }
@@ -353,10 +371,57 @@ table.tt tr:nth-child(even) td { background: #f8f9fa; }
 .gs-footer-icons a { font-size: 22px; color: rgba(255,255,255,0.65); transition: color .15s; }
 .gs-footer-icons a:hover { color: #fff; }
 
+/* ── Hamburger button ── */
+.gs-nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+}
+
+/* ── Mobile dropdown menu ── */
+.gs-nav-mobile {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: #085041;
+  z-index: 99;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  flex-direction: column;
+}
+.gs-nav-mobile.open { display: flex; }
+.gs-nav-mobile a {
+  color: rgba(255,255,255,0.88);
+  font-size: 14px;
+  padding: 14px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: background .1s;
+}
+.gs-nav-mobile a:hover { background: rgba(255,255,255,0.08); }
+.gs-nav-mobile a.active { color: #fff; font-weight: 700; background: rgba(255,255,255,0.12); }
+.gs-nav-mobile .mobile-social {
+  display: flex;
+  gap: 16px;
+  padding: 14px 24px;
+}
+.gs-nav-mobile .mobile-social a {
+  font-size: 22px;
+  padding: 0;
+  border-bottom: none;
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .gs-nav { padding: 0 16px; }
+  .gs-nav { padding: 0 16px; position: relative; }
   .gs-nav-links { display: none; }
+  .gs-nav-icons { display: none; }
+  .gs-nav-hamburger { display: block; }
   .page-wrap { width: 95%; }
   .card-grid-3, .prog-grid, .info-grid, .teacher-grid { grid-template-columns: 1fr; }
   .card-cell, .prog-card, .info-cell, .teacher-card { border-right: none; }
@@ -364,4 +429,13 @@ table.tt tr:nth-child(even) td { background: #f8f9fa; }
   .img-box { border-right: none; border-bottom: 1px solid #e8eaed; padding: 20px; flex-direction: row; gap: 14px; }
   .gs-hero { padding: 36px 20px; }
   .gs-hero h1 { font-size: 20px; }
+  .notice-header { padding: 14px 20px; }
+  .notice-body { margin: 0 20px; padding: 0 0 16px 0; }
+  .sec-head { padding: 20px 20px 0; }
+  .sec-body { padding: 12px 20px 20px; }
+  .btn-area { padding: 16px 20px 20px; }
+  .event-list { padding: 4px 20px 20px; }
+  .timetable-wrap { padding: 16px 12px 20px; }
+  .gs-footer { flex-direction: column; gap: 14px; text-align: center; }
+  .gs-footer-icons { justify-content: center; }
 }
