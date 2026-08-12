@@ -1,4 +1,25 @@
-// 현재 페이지 파일명 기반으로 active 네비 설정
+// ══════════════════════════════════════════
+//  사이트 설정 — 여기서만 수정하면 전체 반영
+// ══════════════════════════════════════════
+const SITE = {
+  nameKr:    '올바니사랑한국학교',
+  nameEn:    'Albany Sarang Korean School',
+  address:   'Albany, New York',
+  email:     'sarang.hangeul@email.com',
+  instagram: 'https://instagram.com',
+  facebook:  'https://facebook.com',
+};
+
+const PAGES = {
+  'index.html':        { kr: 'Home',         en: 'Home' },
+  'about.html':        { kr: '학교 소개',    en: 'About Us' },
+  'programs.html':     { kr: '수업 프로그램', en: 'Programs' },
+  'registration.html': { kr: '등록 안내',    en: 'Registration' },
+  'calendar.html':     { kr: '학사 일정',    en: 'Academic Calendar' },
+  'schedule.html':     { kr: '수업 시간표',  en: 'Class Schedule' },
+};
+// ══════════════════════════════════════════
+
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
 const navLinks = [
@@ -26,13 +47,13 @@ function renderNav() {
 
   nav.innerHTML = `
     <a href="index.html" class="gs-nav-logo">
-      <span class="kr">올바니 사랑의 교회 한글학교</span>
-      <span class="en">Albany Korean Language School</span>
+      <span class="kr">${SITE.nameKr}</span>
+      <span class="en">${SITE.nameEn}</span>
     </a>
     <div class="gs-nav-links">${desktopLinks}</div>
     <div class="gs-nav-icons">
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+      <a href="${SITE.instagram}" target="_blank" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+      <a href="${SITE.facebook}" target="_blank" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
     </div>
     <button class="gs-nav-hamburger" onclick="toggleMobileMenu()" aria-label="메뉴 열기">
       <i class="ti ti-menu-2" id="hamburger-icon"></i>
@@ -40,10 +61,27 @@ function renderNav() {
     <div class="gs-nav-mobile" id="mobile-menu">
       ${mobileLinks}
       <div class="mobile-social">
-        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+        <a href="${SITE.instagram}" target="_blank" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+        <a href="${SITE.facebook}" target="_blank" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
       </div>
     </div>
+  `;
+
+  // 브라우저 탭 제목도 자동 설정
+  const pageInfo = PAGES[currentPage];
+  if (pageInfo) {
+    document.title = `${pageInfo.kr} — ${SITE.nameKr}`;
+  }
+}
+
+function renderHero() {
+  const hero = document.getElementById('page-hero');
+  if (!hero) return;
+  const pageInfo = PAGES[currentPage];
+  if (!pageInfo) return;
+  hero.innerHTML = `
+    <h1>${pageInfo.kr}</h1>
+    <p>${pageInfo.en}</p>
   `;
 }
 
@@ -54,7 +92,6 @@ function toggleMobileMenu() {
   icon.className = isOpen ? 'ti ti-x' : 'ti ti-menu-2';
 }
 
-// 메뉴 바깥 클릭하면 닫기
 document.addEventListener('click', (e) => {
   const nav = document.getElementById('main-nav');
   const menu = document.getElementById('mobile-menu');
@@ -68,20 +105,20 @@ document.addEventListener('click', (e) => {
 function renderFooter() {
   const footer = document.getElementById('main-footer');
   if (!footer) return;
-
   footer.innerHTML = `
     <div class="gs-footer-text">
-      올바니 사랑의 교회 한글학교 · Albany Korean School<br>
-      Albany, New York · albanykoreancenter@gmail.com
+      ${SITE.nameKr} · ${SITE.nameEn}<br>
+      ${SITE.address} · ${SITE.email}
     </div>
     <div class="gs-footer-icons">
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+      <a href="${SITE.instagram}" target="_blank" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+      <a href="${SITE.facebook}" target="_blank" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
     </div>
   `;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   renderNav();
+  renderHero();
   renderFooter();
 });

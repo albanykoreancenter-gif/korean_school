@@ -102,10 +102,10 @@ a { text-decoration: none; color: inherit; }
 
 /* ── Section ── */
 .sec { border-top: 1px solid #e8eaed; }
-.sec-head { padding: 24px 32px 0; }
+.sec-head { padding: 28px 32px 16px; }
 .sec-head h2 { font-size: 18px; font-weight: 700; color: #202124; }
-.sec-head .en { font-size: 12px; color: #9aa0a6; margin-top: 3px; }
-.sec-body { padding: 14px 32px 24px; }
+.sec-head .en { font-size: 12px; color: #9aa0a6; margin-top: 4px; }
+.sec-body { padding: 0 32px 28px; }
 .sec-body p { font-size: 13px; color: #5f6368; line-height: 1.85; margin-bottom: 5px; }
 .sec-body ul { padding-left: 20px; }
 .sec-body ul li { font-size: 13px; color: #5f6368; line-height: 1.9; }
@@ -145,8 +145,7 @@ a { text-decoration: none; color: inherit; }
 
 .notice-body {
   display: none;
-  padding: 0 32px 20px 32px;
-  border-top: 1px dashed #e8eaed;
+  padding: 0 32px 20px 32px;  border-top: 1px dashed #e8eaed;
   margin: 0 32px;
 }
 .notice-item.open .notice-body { display: block; }
@@ -250,7 +249,7 @@ a { text-decoration: none; color: inherit; }
   border-top: 1px solid #e8eaed;
 }
 .info-cell {
-  padding: 20px 26px;
+  padding: 20px 32px;
   border-right: 1px solid #e8eaed;
   border-bottom: 1px solid #e8eaed;
 }
@@ -259,6 +258,42 @@ a { text-decoration: none; color: inherit; }
 .info-label { font-size: 10px; color: #1D9E75; font-weight: 700; margin-bottom: 5px; text-transform: uppercase; letter-spacing: .5px; }
 .info-val { font-size: 14px; font-weight: 700; color: #202124; margin-bottom: 3px; }
 .info-en { font-size: 11px; color: #9aa0a6; }
+
+/* ── Tuition table ── */
+.tuition-table {
+  margin: 0;
+  border-top: 1px solid #e8eaed;
+}
+.tuition-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 14px 32px;
+  border-bottom: 1px solid #f1f3f4;
+  font-size: 13px;
+  color: #3c4043;
+  gap: 8px;
+}
+.tuition-row:last-child { border-bottom: none; }
+.tuition-row i { margin-right: 6px; color: #1D9E75; font-size: 15px; }
+.tuition-header {
+  background: #f8f9fa;
+  font-size: 11px;
+  font-weight: 700;
+  color: #5f6368;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  padding: 10px 32px;
+}
+.tuition-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0F6E56;
+}
+@media (max-width: 768px) {
+  .tuition-row { padding: 14px 20px; }
+  .tuition-header { padding: 10px 20px; }
+}
 
 /* ── Image placeholder ── */
 .img-placeholder {
@@ -277,7 +312,7 @@ a { text-decoration: none; color: inherit; }
 .img-placeholder i { font-size: 48px; }
 
 /* ── Buttons ── */
-.btn-area { padding: 20px 32px 26px; display: flex; gap: 12px; flex-wrap: wrap; border-top: 1px solid #e8eaed; }
+.btn-area { padding: 20px 32px 28px; display: flex; gap: 12px; flex-wrap: wrap; border-top: 1px solid #e8eaed; }
 .btn {
   padding: 11px 24px;
   border-radius: 4px;
@@ -308,7 +343,7 @@ a { text-decoration: none; color: inherit; }
 .event-en { font-size: 11px; color: #5f6368; }
 
 /* ── Timetable ── */
-.timetable-wrap { padding: 18px 28px 24px; overflow-x: auto; }
+.timetable-wrap { padding: 18px 32px 28px; overflow-x: auto; }
 table.tt { width: 100%; border-collapse: collapse; font-size: 13px; }
 table.tt th {
   background: #0F6E56;
@@ -371,7 +406,32 @@ table.tt tr:nth-child(even) td { background: #f8f9fa; }
 .gs-footer-icons a { font-size: 22px; color: rgba(255,255,255,0.65); transition: color .15s; }
 .gs-footer-icons a:hover { color: #fff; }
 
-/* ── Hamburger button ── */
+/* ── Board of Directors grid ── */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid #e8eaed;
+}
+.board-card {
+  padding: 20px;
+  border-right: 1px solid #e8eaed;
+  border-bottom: 1px solid #e8eaed;
+  text-align: center;
+}
+.board-card:nth-child(3n) { border-right: none; }
+.board-card:nth-last-child(-n+3) { border-bottom: none; }
+.board-card i { font-size: 28px; color: #9aa0a6; margin-bottom: 8px; display: block; }
+.board-name { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+.board-role { font-size: 11px; color: #5f6368; }
+
+@media (max-width: 768px) {
+  .board-grid { grid-template-columns: repeat(2, 1fr); }
+  .board-card:nth-child(3n) { border-right: 1px solid #e8eaed; }
+  .board-card:nth-child(2n) { border-right: none; }
+  .board-card:nth-last-child(-n+3) { border-bottom: 1px solid #e8eaed; }
+  .board-card:nth-last-child(-n+2) { border-bottom: none; }
+}
 .gs-nav-hamburger {
   display: none;
   background: none;
@@ -431,11 +491,14 @@ table.tt tr:nth-child(even) td { background: #f8f9fa; }
   .gs-hero h1 { font-size: 20px; }
   .notice-header { padding: 14px 20px; }
   .notice-body { margin: 0 20px; padding: 0 0 16px 0; }
-  .sec-head { padding: 20px 20px 0; }
-  .sec-body { padding: 12px 20px 20px; }
+  .sec-head { padding: 20px 20px 14px; }
+  .sec-body { padding: 0 20px 20px; }
   .btn-area { padding: 16px 20px 20px; }
   .event-list { padding: 4px 20px 20px; }
   .timetable-wrap { padding: 16px 12px 20px; }
+  .info-cell { padding: 16px 20px; }
+  .tuition-row { padding: 14px 20px; }
+  .tuition-header { padding: 10px 20px; }
   .gs-footer { flex-direction: column; gap: 14px; text-align: center; }
   .gs-footer-icons { justify-content: center; }
 }
