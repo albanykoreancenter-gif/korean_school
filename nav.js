@@ -5,7 +5,7 @@ const SITE = {
   nameKr:    '올바니사랑한국학교',
   nameEn:    'Albany Sarang Korean School',
   address:   'Albany, New York',
-  email:     'sarang.hangeul@email.com',
+  email:     'albanykoreancenter@gmail.com',
   instagram: 'https://instagram.com',
   facebook:  'https://facebook.com',
 };
