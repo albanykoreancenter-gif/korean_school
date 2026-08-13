@@ -406,6 +406,38 @@ table.tt tr:nth-child(even) td { background: #f8f9fa; }
 .gs-footer-icons a { font-size: 22px; color: rgba(255,255,255,0.65); transition: color .15s; }
 .gs-footer-icons a:hover { color: #fff; }
 
+/* ── Curriculum grid ── */
+.curr-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #e8eaed;
+}
+.curr-card {
+  padding: 24px 28px;
+  border-right: 1px solid #e8eaed;
+}
+.curr-card:last-child { border-right: none; }
+.curr-icon { font-size: 28px; color: #1D9E75; margin-bottom: 12px; }
+.curr-title { font-size: 14px; font-weight: 700; color: #202124; margin-bottom: 10px; line-height: 1.4; }
+.curr-desc { font-size: 13px; color: #3c4043; line-height: 1.7; margin-bottom: 6px; }
+.curr-desc-en { font-size: 11px; color: #9aa0a6; line-height: 1.7; margin-top: 8px; }
+.curr-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+.curr-tag {
+  display: inline-block;
+  font-size: 11px;
+  background: #e6f4ea;
+  color: #137333;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .curr-grid { grid-template-columns: 1fr; }
+  .curr-card { border-right: none; border-bottom: 1px solid #e8eaed; }
+  .curr-card:last-child { border-bottom: none; }
+}
+
 /* ── Board of Directors grid ── */
 .board-grid {
   display: grid;
