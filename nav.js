@@ -6,8 +6,9 @@ const SITE = {
   nameEn:    'Albany Sarang Korean School',
   address:   'Albany, New York',
   email:     'sarang.hangeul@email.com',
-  instagram: 'https://instagram.com',
-  facebook:  'https://facebook.com',
+  churchPage: 'https://www.albanysarang.net/bbs/board.php?bo_table=m4060',
+  // instagram: 'https://instagram.com',  // 준비 중
+  // facebook:  'https://facebook.com',   // 준비 중
 };
 
 const PAGES = {
@@ -52,8 +53,9 @@ function renderNav() {
     </a>
     <div class="gs-nav-links">${desktopLinks}</div>
     <div class="gs-nav-icons">
-      <a href="${SITE.instagram}" target="_blank" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-      <a href="${SITE.facebook}" target="_blank" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+      <a href="${SITE.churchPage}" target="_blank" aria-label="교회 한국학교 페이지">
+        <i class="ti ti-home-2"></i>
+      </a>
     </div>
     <button class="gs-nav-hamburger" onclick="toggleMobileMenu()" aria-label="메뉴 열기">
       <i class="ti ti-menu-2" id="hamburger-icon"></i>
@@ -61,13 +63,13 @@ function renderNav() {
     <div class="gs-nav-mobile" id="mobile-menu">
       ${mobileLinks}
       <div class="mobile-social">
-        <a href="${SITE.instagram}" target="_blank" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-        <a href="${SITE.facebook}" target="_blank" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+        <a href="${SITE.churchPage}" target="_blank" aria-label="교회 한국학교 페이지">
+          <i class="ti ti-home-2"></i>
+        </a>
       </div>
     </div>
   `;
 
-  // 브라우저 탭 제목도 자동 설정
   const pageInfo = PAGES[currentPage];
   if (pageInfo) {
     document.title = `${pageInfo.kr} — ${SITE.nameKr}`;
@@ -111,8 +113,9 @@ function renderFooter() {
       ${SITE.address} · ${SITE.email}
     </div>
     <div class="gs-footer-icons">
-      <a href="${SITE.instagram}" target="_blank" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-      <a href="${SITE.facebook}" target="_blank" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+      <a href="${SITE.churchPage}" target="_blank" aria-label="교회 한국학교 페이지">
+        <i class="ti ti-home-2"></i>
+      </a>
     </div>
   `;
 }
