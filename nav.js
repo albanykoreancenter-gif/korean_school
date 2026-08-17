@@ -81,9 +81,18 @@ function renderHero() {
   if (!hero) return;
   const pageInfo = PAGES[currentPage];
   if (!pageInfo) return;
+
+  const isRegistration = currentPage === 'registration.html';
+  const btnHtml = isRegistration ? `
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5tQxyb9Gc0pHFUXllpKd1UmarHrJn-OB44DHgzYOFZ8lZ5w/viewform?usp=header"
+       target="_blank" class="gs-hero-btn mint">
+      <i class="ti ti-external-link"></i> 등록 폼 바로가기 · Register Now
+    </a>` : '';
+
   hero.innerHTML = `
     <h1>${pageInfo.kr}</h1>
     <p>${pageInfo.en}</p>
+    ${btnHtml}
   `;
 }
 

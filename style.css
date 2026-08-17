@@ -89,6 +89,10 @@ a { text-decoration: none; color: inherit; }
   transition: opacity .15s;
 }
 .gs-hero-btn:hover { opacity: 0.9; }
+.gs-hero-btn.mint {
+  background: #64ecad;
+  color: #085041;
+}
 
 /* ── Body card ── */
 .gs-body {
