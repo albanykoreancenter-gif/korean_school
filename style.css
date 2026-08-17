@@ -259,6 +259,26 @@ a { text-decoration: none; color: inherit; }
 .info-val { font-size: 14px; font-weight: 700; color: #202124; margin-bottom: 3px; }
 .info-en { font-size: 11px; color: #9aa0a6; }
 
+/* ── Poster images ── */
+.poster-wrap {
+  display: flex;
+  gap: 16px;
+  padding: 24px 32px;
+  border-top: 1px solid #e8eaed;
+  flex-wrap: wrap;
+}
+.poster-img {
+  flex: 1;
+  min-width: 200px;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  object-fit: contain;
+}
+@media (max-width: 768px) {
+  .poster-wrap { flex-direction: column; padding: 20px; }
+}
+
 /* ── Tuition table ── */
 .tuition-table {
   margin: 0;
